@@ -159,6 +159,9 @@
     self.selectionIndicatorBoxLayer.borderWidth = 1.0f;
     self.selectionIndicatorBoxOpacity = 0.2;
     
+    self.textAlignment = kCAAlignmentCenter;
+    self.layerAlignment = kCAAlignmentCenter;
+    
     self.contentMode = UIViewContentModeRedraw;
 }
 
@@ -327,7 +330,7 @@
             
             CATextLayer *titleLayer = [CATextLayer layer];
             titleLayer.frame = rect;
-            titleLayer.alignmentMode = kCAAlignmentCenter;
+            titleLayer.alignmentMode = self.layerAlignment;
             if ([UIDevice currentDevice].systemVersion.floatValue < 10.0 ) {
                 titleLayer.truncationMode = kCATruncationEnd;
             }
@@ -465,7 +468,7 @@
 
             CATextLayer *titleLayer = [CATextLayer layer];
             titleLayer.frame = textRect;
-            titleLayer.alignmentMode = kCAAlignmentCenter;
+            titleLayer.alignmentMode = self.textAlignment;
             titleLayer.string = [self attributedTitleAtIndex:idx];
             if ([UIDevice currentDevice].systemVersion.floatValue < 10.0 ) {
                 titleLayer.truncationMode = kCATruncationEnd;
